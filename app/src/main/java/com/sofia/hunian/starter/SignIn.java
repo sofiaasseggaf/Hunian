@@ -1,4 +1,4 @@
-package com.sofia.hunian;
+package com.sofia.hunian.starter;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,17 +9,18 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-public class Login extends AppCompatActivity {
+import com.sofia.hunian.R;
+
+public class SignIn extends AppCompatActivity {
 
     EditText txt_username, txt_password;
-    ImageButton btn_sign_in;
+    ImageButton btn_visibility, btn_sign_in;
     TextView btn_sign_up;
-    ImageButton btn_visibility;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login);
+        setContentView(R.layout.sign_in);
 
         txt_username = findViewById(R.id.txt_username);
         txt_password = findViewById(R.id.txt_password);
@@ -30,7 +31,7 @@ public class Login extends AppCompatActivity {
         btn_sign_up.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent a = new Intent(Login.this, SignUp.class);
+                Intent a = new Intent(SignIn.this, SignUp.class);
                 startActivity(a);
                 finish();
             }
