@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Hunian">
         <activity
+            android:name=".user.HomeUser"
+            android:exported="false" />
+        <activity
             android:name=".admin.HomeAdmin"
             android:exported="false" />
         <activity
