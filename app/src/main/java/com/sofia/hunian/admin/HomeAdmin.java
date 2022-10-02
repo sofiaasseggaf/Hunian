@@ -19,8 +19,8 @@ public class HomeAdmin extends AppCompatActivity {
 
     TextView txt_nama;
     HorizontalScrollView hsv_katalog;
-    ImageButton btn_laporan, btn_home, btn_katalog, btn_disukai, btn_profile;
-    LinearLayout btn_home2, btn_katalog2, btn_disukai2, btn_profile2;
+    ImageButton btn_laporan, btn_katalog, btn_disukai, btn_profile;
+    LinearLayout btn_katalog2, btn_disukai2, btn_profile2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,11 +30,9 @@ public class HomeAdmin extends AppCompatActivity {
         txt_nama = findViewById(R.id.txt_nama);
         hsv_katalog = findViewById(R.id.hsv_katalog);
         btn_laporan = findViewById(R.id.btn_laporan);
-        btn_home = findViewById(R.id.btn_home);
         btn_katalog = findViewById(R.id.btn_katalog);
         btn_disukai = findViewById(R.id.btn_disukai);
         btn_profile = findViewById(R.id.btn_profile);
-        btn_home2 = findViewById(R.id.btn_home2);
         btn_katalog2 = findViewById(R.id.btn_katalog2);
         btn_disukai2 = findViewById(R.id.btn_disukai2);
         btn_profile2 = findViewById(R.id.btn_profile2);
@@ -93,10 +91,14 @@ public class HomeAdmin extends AppCompatActivity {
         // kasih alert suruh buat akun user
     }
     private void goToProfile(){
-
+        Intent a = new Intent(HomeAdmin.this, ProfileAdmin.class);
+        startActivity(a);
+        finish();
     }
     private void goToLaporan(){
-
+        Intent a = new Intent(HomeAdmin.this, LaporanAdmin.class);
+        startActivity(a);
+        finish();
     }
 
     @Override

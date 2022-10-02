@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Hunian">
         <activity
+            android:name=".user.KeranjangUser"
+            android:exported="false" />
+        <activity
             android:name=".user.InputHunianUser"
             android:exported="false" />
         <activity
