@@ -38,7 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp"
-            android:textColor="@color/oranye"
+            android:textColor="@color/redred"
             android:layout_marginTop="25dp"
             android:fontFamily="@font/roboto_medium"
             android:text="Nama"/>
@@ -56,7 +56,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp"
-            android:textColor="@color/oranye"
+            android:textColor="@color/redred"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/roboto_medium"
             android:text="Username"/>
@@ -74,7 +74,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp"
-            android:textColor="@color/oranye"
+            android:textColor="@color/redred"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/roboto_medium"
             android:text="Alamat"/>
@@ -92,7 +92,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp"
-            android:textColor="@color/oranye"
+            android:textColor="@color/redred"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/roboto_medium"
             android:text="No Telepon"/>
@@ -111,7 +111,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp"
-            android:textColor="@color/oranye"
+            android:textColor="@color/redred"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/roboto_medium"
             android:text="Password"/>
@@ -144,7 +144,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp"
-            android:textColor="@color/oranye"
+            android:textColor="@color/redred"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/roboto_medium"
             android:text="Repeat Password"/>
@@ -159,7 +159,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dp"
-                android:layout_toLeftOf="@id/btn_visibility"
+                android:layout_toLeftOf="@id/btn_visibility2"
                 android:fontFamily="@font/roboto_medium"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
@@ -207,7 +207,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="  Sign In"
-                android:textColor="@color/oranye"
+                android:textColor="@color/redred"
                 android:fontFamily="@font/roboto_regular"
                 android:textSize="16sp"/>
         </LinearLayout>

@@ -4,10 +4,22 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Thinkpad/AndroidStudioProjects/Hunian/app/src/main/res/layout/admin_home.xml" value="0.29322916666666665" />
+        <entry key="..\:/Users/Thinkpad/AndroidStudioProjects/Hunian/app/src/main/res/layout/admin_katalog.xml" value="0.29322916666666665" />
+        <entry key="..\:/Users/Thinkpad/AndroidStudioProjects/Hunian/app/src/main/res/layout/admin_laporan.xml" value="0.29322916666666665" />
+        <entry key="..\:/Users/Thinkpad/AndroidStudioProjects/Hunian/app/src/main/res/layout/admin_laporan_data_hunian.xml" value="0.29322916666666665" />
+        <entry key="..\:/Users/Thinkpad/AndroidStudioProjects/Hunian/app/src/main/res/layout/admin_laporan_data_hunian_keluar.xml" value="0.29322916666666665" />
+        <entry key="..\:/Users/Thinkpad/AndroidStudioProjects/Hunian/app/src/main/res/layout/admin_laporan_data_hunian_masuk.xml" value="0.29322916666666665" />
+        <entry key="..\:/Users/Thinkpad/AndroidStudioProjects/Hunian/app/src/main/res/layout/admin_laporan_data_user.xml" value="0.29322916666666665" />
+        <entry key="..\:/Users/Thinkpad/AndroidStudioProjects/Hunian/app/src/main/res/layout/admin_profile.xml" value="0.2791666666666667" />
         <entry key="..\:/Users/Thinkpad/AndroidStudioProjects/Hunian/app/src/main/res/layout/login.xml" value="0.29322916666666665" />
+        <entry key="..\:/Users/Thinkpad/AndroidStudioProjects/Hunian/app/src/main/res/layout/sign_in.xml" value="0.25" />
         <entry key="..\:/Users/Thinkpad/AndroidStudioProjects/Hunian/app/src/main/res/layout/sign_up.xml" value="0.29322916666666665" />
         <entry key="..\:/Users/Thinkpad/AndroidStudioProjects/Hunian/app/src/main/res/layout/splash_screen.xml" value="0.29322916666666665" />
+        <entry key="..\:/Users/Thinkpad/AndroidStudioProjects/Hunian/app/src/main/res/layout/user_activity_input_hunian.xml" value="0.2791666666666667" />
+        <entry key="..\:/Users/Thinkpad/AndroidStudioProjects/Hunian/app/src/main/res/layout/user_disukai.xml" value="0.2791666666666667" />
         <entry key="..\:/Users/Thinkpad/AndroidStudioProjects/Hunian/app/src/main/res/layout/user_home.xml" value="0.29322916666666665" />
+        <entry key="..\:/Users/Thinkpad/AndroidStudioProjects/Hunian/app/src/main/res/layout/user_katalog.xml" value="0.29322916666666665" />
+        <entry key="..\:/Users/Thinkpad/AndroidStudioProjects/Hunian/app/src/main/res/layout/user_profile.xml" value="0.29322916666666665" />
       </map>
     </option>
   </component>

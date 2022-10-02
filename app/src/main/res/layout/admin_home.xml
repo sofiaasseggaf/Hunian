@@ -106,7 +106,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/roboto_regular"
-                android:textColor="#DF5532"
+                android:textColor="@color/redlight"
                 android:textSize="12sp"
                 android:text="Home"/>
         </LinearLayout>
@@ -122,7 +122,7 @@
                 android:id="@+id/btn_katalog"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/icon_portfolio"/>
+                android:background="@drawable/icon_katalog_unactive"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -144,7 +144,7 @@
                 android:id="@+id/btn_disukai"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/icon_input"/>
+                android:background="@drawable/icon_disukai_unactive"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -166,7 +166,7 @@
                 android:id="@+id/btn_profile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/icon_profile"/>
+                android:background="@drawable/icon_profile_unactive"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

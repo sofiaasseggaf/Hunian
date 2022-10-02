@@ -1,7 +1,9 @@
 package com.sofia.hunian.starter;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -31,12 +33,40 @@ public class SignIn extends AppCompatActivity {
         btn_sign_up.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent a = new Intent(SignIn.this, SignUp.class);
-                startActivity(a);
-                finish();
+                goToSignUp();
             }
         });
 
 
+    }
+
+    private void goToSignUp(){
+        Intent a = new Intent(SignIn.this, SignUp.class);
+        startActivity(a);
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Anda Mau Menutup Aplikasi")
+                .setCancelable(false)
+                .setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int i) {
+                        SignIn.super.onBackPressed();
+                        finish();
+                        finishAffinity();
+                    }
+                })
+
+                .setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int i) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alertDialog =builder.create();
+        alertDialog.show();
     }
 }

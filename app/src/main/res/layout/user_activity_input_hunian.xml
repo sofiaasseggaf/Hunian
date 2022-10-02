@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".user.InputHunianUser">
+
+    <TextView
+        android:id="@+id/txt_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Input Hunian"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/btn_tambah_hunian"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginRight="25dp"
+        android:layout_below="@id/txt_top">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Nama Hunian"/>
+
+            <EditText
+                android:id="@+id/txt_nama_hunian"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:background="@drawable/rect_search"
+                android:textColor="@color/black"
+                android:paddingLeft="10dp"
+                android:hint="Masukkan Nama Hunian"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/roboto_medium"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Kota Hunian"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/txt_kota_hunian"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:background="@drawable/rect_search"
+                android:paddingLeft="10dp"
+                android:hint="Masukkan Kota Hunian"
+                android:textColor="@color/black"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/roboto_medium"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Harga Hunian"/>
+
+            <EditText
+                android:id="@+id/txt_harga_hunian"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:paddingLeft="10dp"
+                android:hint="Masukkan Harga Hunian"
+                android:background="@drawable/rect_search"
+                android:textColor="@color/black"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/roboto_medium"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Keterangan Hunian"/>
+
+            <EditText
+                android:id="@+id/txt_keterangan_hunian"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:paddingLeft="10dp"
+                android:hint="Masukkan Keterangan Hunian"
+                android:background="@drawable/rect_ket_hunian"
+                android:textColor="@color/black"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/roboto_medium"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Detail Hunian"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@color/fontcolor"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="ex : 1 Kamar Tidur; 3 Kamar Mandi"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp">
+                <EditText
+                    android:id="@+id/txt_detail_hunian1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:paddingLeft="10dp"
+                    android:hint="Masukkan Detail Hunian"
+                    android:background="@drawable/rect_detail_hunian"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/roboto_medium"/>
+                <EditText
+                    android:id="@+id/txt_detail_hunian2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:paddingLeft="10dp"
+                    android:layout_marginLeft="15dp"
+                    android:hint="Masukkan Detail Hunian"
+                    android:background="@drawable/rect_detail_hunian"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/roboto_medium"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp">
+                <EditText
+                    android:id="@+id/txt_detail_hunian3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:paddingLeft="10dp"
+                    android:hint="Masukkan Detail Hunian"
+                    android:background="@drawable/rect_detail_hunian"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/roboto_medium"/>
+                <EditText
+                    android:id="@+id/txt_detail_hunian4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:paddingLeft="10dp"
+                    android:layout_marginLeft="15dp"
+                    android:hint="Masukkan Detail Hunian"
+                    android:background="@drawable/rect_detail_hunian"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/roboto_medium"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Gambar Hunian"/>
+
+            <ImageButton
+                android:id="@+id/btn_camera"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_camera"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+    <ImageButton
+        android:id="@+id/btn_tambah_hunian"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="25dp"
+        android:background="@drawable/btn_tambah_hunian" />
+
+
+</RelativeLayout>

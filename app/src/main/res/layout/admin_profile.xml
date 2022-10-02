@@ -6,80 +6,158 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".user.HomeUser">
+    android:orientation="vertical"
+    tools:context=".admin.ProfileAdmin">
 
     <FrameLayout
-        android:id="@+id/top"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/top"/>
+        android:background="@drawable/bg_top"/>
+
+    <TextView
+        android:id="@+id/txt_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Profile"
+        android:textColor="@color/black"
+        android:textSize="26sp" />
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
         android:orientation="vertical"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_below="@id/top"
-        android:layout_marginTop="20dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hai,"
-            android:fontFamily="@font/roboto_regular"
-            android:textSize="18sp"
-            android:textColor="@color/black"/>
-        <TextView
-            android:id="@+id/nama"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="User"
-            android:fontFamily="@font/roboto_medium"
-            android:textSize="20sp"
-            android:textColor="@color/black"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Katalog"
-            android:fontFamily="@font/roboto_medium"
-            android:textSize="16sp"
-            android:layout_marginTop="20dp"
-            android:textColor="@color/black"/>
-        <HorizontalScrollView
-            android:id="@+id/hsv_katalog"
+        android:layout_marginTop="30dp"
+        android:layout_above="@id/btn_simpan_perubahan"
+        android:layout_below="@id/txt_top"
+        android:layout_marginRight="25dp">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginTop="10dp"/>
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hai,  "
+                android:fontFamily="@font/roboto_regular"
+                android:textSize="18sp"
+                android:textColor="@color/black"/>
+            <TextView
+                android:id="@+id/nama"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="User"
+                android:fontFamily="@font/roboto_medium"
+                android:textSize="23sp"
+                android:textColor="@color/black"/>
+        </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Nama"/>
+
+    <EditText
+        android:id="@+id/txt_nama"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:background="@drawable/rect_search"
+        android:textColor="@color/black"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/roboto_medium"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="About Aplikasi"
+            android:layout_marginTop="15dp"
             android:fontFamily="@font/roboto_medium"
-            android:textSize="16sp"
-            android:layout_marginTop="20dp"
-            android:textColor="@color/black"/>
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_marginTop="10dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Keranjang Anda"
-            android:fontFamily="@font/roboto_medium"
-            android:textSize="16sp"
-            android:layout_marginTop="20dp"
-            android:textColor="@color/black"/>
+            android:text="Username"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <EditText
+        android:id="@+id/txt_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:background="@drawable/rect_search"
+        android:textColor="@color/black"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/roboto_medium"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Alamat"/>
+
+    <EditText
+        android:id="@+id/txt_alamat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:background="@drawable/rect_search"
+        android:textColor="@color/black"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/roboto_medium"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="No Telepon"/>
+
+    <EditText
+        android:id="@+id/txt_telepon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:inputType="number"
+        android:background="@drawable/rect_search"
+        android:textColor="@color/black"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/roboto_medium"/>
+
         <ImageButton
-            android:id="@+id/btn_keranjang"
+            android:id="@+id/btn_sign_out"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/btn_keranjang_anda"
-            android:layout_marginTop="10dp"
-            android:layout_gravity="center"/>
+            android:background="@drawable/btn_sign_out"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="right"/>
+
     </LinearLayout>
 
+
+
+    <ImageButton
+        android:id="@+id/btn_simpan_perubahan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/ll_bottom"
+        android:layout_marginBottom="15dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/btn_simpan_perubahan"/>
+
     <LinearLayout
+        android:id="@+id/ll_bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -100,13 +178,13 @@
                 android:id="@+id/btn_home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/icon_home_active"/>
+                android:background="@drawable/icon_home_unactive"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/roboto_regular"
-                android:textColor="#DF5532"
+                android:textColor="@color/fontcolor"
                 android:textSize="12sp"
                 android:text="Home"/>
         </LinearLayout>
@@ -166,13 +244,13 @@
                 android:id="@+id/btn_profile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/icon_profile_unactive"/>
+                android:background="@drawable/icon_profile_active"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/roboto_regular"
-                android:textColor="@color/fontcolor"
+                android:textColor="@color/redlight"
                 android:textSize="12sp"
                 android:text="Profile"/>
         </LinearLayout>

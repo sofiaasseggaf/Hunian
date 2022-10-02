@@ -6,80 +6,78 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".user.HomeUser">
+    android:orientation="vertical"
+    tools:context=".admin.KatalogAdmin">
 
-    <FrameLayout
-        android:id="@+id/top"
+    <TextView
+        android:id="@+id/txt_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="20dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Katalog"
+        android:textColor="@color/black"
+        android:textSize="26sp" />
+
+    <RelativeLayout
+        android:id="@+id/rl_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/top"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:background="@drawable/rect_search"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_below="@id/top"
-        android:layout_marginTop="20dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hai,"
-            android:fontFamily="@font/roboto_regular"
-            android:textSize="18sp"
-            android:textColor="@color/black"/>
-        <TextView
-            android:id="@+id/nama"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="User"
-            android:fontFamily="@font/roboto_medium"
-            android:textSize="20sp"
-            android:textColor="@color/black"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Katalog"
-            android:fontFamily="@font/roboto_medium"
-            android:textSize="16sp"
-            android:layout_marginTop="20dp"
-            android:textColor="@color/black"/>
-        <HorizontalScrollView
-            android:id="@+id/hsv_katalog"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/txt_top">
+
+        <EditText
+            android:id="@+id/txt_search"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginTop="10dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="About Aplikasi"
+            android:layout_height="35dp"
+            android:layout_marginTop="5dp"
+            android:layout_toLeftOf="@id/btn_search"
+            android:background="@color/white"
             android:fontFamily="@font/roboto_medium"
-            android:textSize="16sp"
-            android:layout_marginTop="20dp"
-            android:textColor="@color/black"/>
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_marginTop="10dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Keranjang Anda"
-            android:fontFamily="@font/roboto_medium"
-            android:textSize="16sp"
-            android:layout_marginTop="20dp"
-            android:textColor="@color/black"/>
+            android:hint="Filter Kota "
+            android:paddingLeft="10dp"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
         <ImageButton
-            android:id="@+id/btn_keranjang"
+            android:id="@+id/btn_search"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/btn_keranjang_anda"
-            android:layout_marginTop="10dp"
-            android:layout_gravity="center"/>
-    </LinearLayout>
+            android:background="@drawable/btn_search"/>
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:layout_above="@id/ll_bottom"
+        android:layout_below="@id/rl_search">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvKatalog"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+        </LinearLayout>
+
+    </ScrollView>
 
     <LinearLayout
+        android:id="@+id/ll_bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -100,13 +98,13 @@
                 android:id="@+id/btn_home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/icon_home_active"/>
+                android:background="@drawable/icon_home_unactive"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/roboto_regular"
-                android:textColor="#DF5532"
+                android:textColor="@color/fontcolor"
                 android:textSize="12sp"
                 android:text="Home"/>
         </LinearLayout>
@@ -122,13 +120,13 @@
                 android:id="@+id/btn_katalog"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/icon_katalog_unactive"/>
+                android:background="@drawable/icon_katalog_active"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/roboto_regular"
-                android:textColor="@color/fontcolor"
+                android:textColor="@color/redlight"
                 android:textSize="12sp"
                 android:text="Katalog"/>
         </LinearLayout>
@@ -178,5 +176,6 @@
         </LinearLayout>
 
     </LinearLayout>
+
 
 </RelativeLayout>

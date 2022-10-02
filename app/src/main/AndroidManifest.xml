@@ -10,6 +10,39 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Hunian">
         <activity
+            android:name=".user.InputHunianUser"
+            android:exported="false" />
+        <activity
+            android:name=".admin.laporan.LaporanDataUser"
+            android:exported="false" />
+        <activity
+            android:name=".admin.laporan.LaporanDataHunianKeluar"
+            android:exported="false" />
+        <activity
+            android:name=".admin.laporan.LaporanDataHunianMasuk"
+            android:exported="false" />
+        <activity
+            android:name=".admin.laporan.LaporanDataHunian"
+            android:exported="false" />
+        <activity
+            android:name=".user.DisukaiUser"
+            android:exported="false" />
+        <activity
+            android:name=".user.ProfileUser"
+            android:exported="false" />
+        <activity
+            android:name=".user.KatalogUser"
+            android:exported="false" />
+        <activity
+            android:name=".admin.LaporanAdmin"
+            android:exported="false" />
+        <activity
+            android:name=".admin.ProfileAdmin"
+            android:exported="false" />
+        <activity
+            android:name=".admin.KatalogAdmin"
+            android:exported="false" />
+        <activity
             android:name=".user.HomeUser"
             android:exported="false" />
         <activity
