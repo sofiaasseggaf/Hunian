@@ -12,6 +12,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.sofia.hunian.R;
+import com.sofia.hunian.user.HomeUser;
 
 public class SignUp extends AppCompatActivity {
 
@@ -35,6 +36,14 @@ public class SignUp extends AppCompatActivity {
         btn_sign_up = findViewById(R.id.btn_sign_up);
         btn_sign_in = findViewById(R.id.btn_sign_in);
 
+        btn_sign_up.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent a = new Intent(SignUp.this, HomeUser.class);
+                startActivity(a);
+                finish();
+            }
+        });
         btn_sign_in.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
