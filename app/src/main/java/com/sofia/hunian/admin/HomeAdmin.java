@@ -2,6 +2,7 @@ package com.sofia.hunian.admin;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -18,7 +19,7 @@ import com.sofia.hunian.starter.SignIn;
 public class HomeAdmin extends AppCompatActivity {
 
     TextView txt_nama;
-    HorizontalScrollView hsv_katalog;
+    ViewPager viewPagerKatalog;;
     ImageButton btn_laporan, btn_katalog, btn_disukai, btn_profile;
     LinearLayout btn_katalog2, btn_disukai2, btn_profile2;
 
@@ -28,7 +29,7 @@ public class HomeAdmin extends AppCompatActivity {
         setContentView(R.layout.admin_home);
 
         txt_nama = findViewById(R.id.txt_nama);
-        hsv_katalog = findViewById(R.id.hsv_katalog);
+        viewPagerKatalog = findViewById(R.id.viewPagerKatalog);
         btn_laporan = findViewById(R.id.btn_laporan);
         btn_katalog = findViewById(R.id.btn_katalog);
         btn_disukai = findViewById(R.id.btn_disukai);

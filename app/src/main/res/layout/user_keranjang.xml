@@ -25,7 +25,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="20dp"
-        android:layout_above="@id/ll_bottom"
         android:layout_below="@id/txt_top">
 
         <LinearLayout
@@ -43,107 +42,6 @@
         </LinearLayout>
 
     </ScrollView>
-
-    <LinearLayout
-        android:id="@+id/ll_bottom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_alignParentBottom="true"
-        android:gravity="center_horizontal"
-        android:paddingTop="20dp"
-        android:paddingBottom="5dp"
-        android:background="@drawable/rect_bottombar">
-
-        <LinearLayout
-            android:id="@+id/btn_home2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
-            <ImageButton
-                android:id="@+id/btn_home"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/icon_home_unactive"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/roboto_regular"
-                android:textColor="@color/fontcolor"
-                android:textSize="12sp"
-                android:text="Home"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/btn_katalog2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
-            <ImageButton
-                android:id="@+id/btn_katalog"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/icon_katalog_unactive"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/roboto_regular"
-                android:textColor="@color/fontcolor"
-                android:textSize="12sp"
-                android:text="Katalog"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/btn_disukai2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
-            <ImageButton
-                android:id="@+id/btn_disukai"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/icon_disukai_active"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:textColor="@color/redlight"
-                android:fontFamily="@font/roboto_regular"
-                android:textSize="12sp"
-                android:text="Disukai"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/btn_profile2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
-            <ImageButton
-                android:id="@+id/btn_profile"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/icon_profile_unactive"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/roboto_regular"
-                android:textColor="@color/fontcolor"
-                android:textSize="12sp"
-                android:text="Profile"/>
-        </LinearLayout>
-
-    </LinearLayout>
 
 
 </RelativeLayout>
