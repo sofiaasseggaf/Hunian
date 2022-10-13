@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -24,10 +25,13 @@ import com.kosalgeek.android.photoutil.GalleryPhoto;
 import com.kosalgeek.android.photoutil.ImageBase64;
 import com.sofia.hunian.R;
 import com.sofia.hunian.helper.DataHelper;
+import com.sofia.hunian.utility.NumberTextWatcher;
 import com.sofia.hunian.utility.PreferenceUtils;
+import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -45,11 +49,12 @@ public class InputHunianUser extends AppCompatActivity {
     DataHelper dbCenter;
     final int CAMERA_REQUEST = 12345;
     final int GALLERY_REQUEST = 54321;
-    Bitmap bitmap;
+    Bitmap bitmap, original;
     String encodedImage;
     String now;
     Random rand;
     int upperbound, id_hunian, id_detail1, id_detail2, id_detail3, id_detail4, id_user;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,10 +78,13 @@ public class InputHunianUser extends AppCompatActivity {
         cameraPhoto = new CameraPhoto(getApplicationContext());
         galleryPhoto = new GalleryPhoto(getApplicationContext());
 
+        txt_harga_hunian.addTextChangedListener(new NumberTextWatcher(txt_harga_hunian));
+
         btn_camera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 image.setVisibility(View.GONE);
+                encodedImage = "";
                 try{
                     startActivityForResult(galleryPhoto.openGalleryIntent(), GALLERY_REQUEST);
                 } catch (Exception e){
@@ -171,9 +179,40 @@ public class InputHunianUser extends AppCompatActivity {
                 }
 
             }*/
+
             if (requestCode == GALLERY_REQUEST) {
                 Uri uri = data.getData();
-                InputStream inputStream = null;
+                try {
+                    Bitmap btmp = MediaStore.Images.Media.getBitmap(this.getContentResolver(), uri);
+                    btmp = Bitmap.createScaledBitmap(btmp,  600 ,600, true);
+                    encodedImage = ImageBase64.encode(btmp);
+                    //image.setVisibility(View.VISIBLE);
+                    //image.setImageBitmap(btmp);
+                    if (!encodedImage.equalsIgnoreCase("")){
+                        Toast.makeText(this, "Berhasil Ambil Gambar", Toast.LENGTH_SHORT).show();
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                /*String[] filePathColumn = { MediaStore.Images.Media.DATA };
+
+                // Get the cursor
+                Cursor cursor = getContentResolver().query(uri,
+                        filePathColumn, null, null, null);
+                // Move to first row
+                cursor.moveToFirst();
+
+                int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+                String imgDecodableString = cursor.getString(columnIndex);
+                cursor.close();
+
+                // Set the Image in ImageView after decoding the String
+                image.setVisibility(View.VISIBLE);
+                image.setImageBitmap(BitmapFactory
+                        .decodeFile(imgDecodableString));*/
+
+                /*InputStream inputStream = null;
                 try {
                     inputStream = getContentResolver().openInputStream(uri);
 
@@ -182,16 +221,16 @@ public class InputHunianUser extends AppCompatActivity {
                         bitmap.recycle();
                         bitmap = null;
                     }
-
-                    Bitmap original = BitmapFactory.decodeStream(inputStream);
-                    bitmap = Bitmap.createScaledBitmap(original, 150, 150, false);
-                    encodedImage = ImageBase64.encode(bitmap);
-                    image.setVisibility(View.VISIBLE);
-                    image.setImageBitmap(bitmap);
-                    if (original != bitmap){
+                    if (original != null) {
                         original.recycle();
                         original = null;
                     }
+
+                    original = BitmapFactory.decodeStream(inputStream);
+                    bitmap = Bitmap.createScaledBitmap(original, 150, 150, false);
+                    encodedImage = ImageBase64.encode(bitmap);
+                    image.setVisibility(View.VISIBLE);
+                    image.setImageBitmap(bitmap);*/
 
                     /*bitmap = BitmapFactory.decodeStream(inputStream);
                     encodedImage = ImageBase64.encode(bitmap);
@@ -202,11 +241,9 @@ public class InputHunianUser extends AppCompatActivity {
                         Toast.makeText(InputHunianUser.this, "Galeri Bermasalah Ketika Mengambil Foto", Toast.LENGTH_SHORT).show();
                     }*/
 
-
-
-                } catch (FileNotFoundException e) {
+               /* } catch (FileNotFoundException e) {
                     e.printStackTrace();
-                }
+                }*/
             }
         }
     }
@@ -231,8 +268,8 @@ public class InputHunianUser extends AppCompatActivity {
                 txt_nama_hunian.getText().toString() + "','" +
                 encodedImage + "','" +
                 txt_kota_hunian.getText().toString() + "','" +
-                txt_keterangan_hunian.getText() + "','" +
                 harga + "','" +
+                txt_keterangan_hunian.getText() + "','" +
                 0 + "','" +
                 "ada" + "','" +
                 PreferenceUtils.getNama(getApplicationContext()) + "','" +

@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 import com.sofia.hunian.model.ModelDetail;
+import com.sofia.hunian.model.ModelDisukai;
 import com.sofia.hunian.model.ModelHunian;
 import com.sofia.hunian.model.ModelHunianKeluar;
 import com.sofia.hunian.model.ModelHunianMasuk;
@@ -19,7 +20,7 @@ import java.util.List;
 
 public class DataHelper extends SQLiteOpenHelper {
 
-    private  static final String DATABASE_NAME = "huniaan.db";
+    private  static final String DATABASE_NAME = "huniaaan.db";
     private static final int DATABASE_VERSION = 1;
 
     public DataHelper(@Nullable Context context) {
@@ -40,6 +41,9 @@ public class DataHelper extends SQLiteOpenHelper {
         String CREATE_TABLE_KERANJANG = "create table keranjang(id_keranjang integer primary key, id_hunian integer not null, id_user integer not null, " +
                 "created_by text not null, created_date text not null, updated_by text not null, updated_date text not null);";
 
+        String CREATE_TABLE_LIKE = "create table disukai(id_like integer primary key, id_hunian integer not null, id_user integer not null, " +
+        "created_by text not null, created_date text not null, updated_by text not null, updated_date text not null);";
+
         String CREATE_TABLE_DETAIL = "create table detail(id_detail integer primary key, id_hunian integer not null, nama_detail text not null, " +
                 "created_by text not null, created_date text not null);";
 
@@ -53,6 +57,7 @@ public class DataHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_TABLE_DETAIL);
         db.execSQL(CREATE_TABLE_HUNIAN_MASUK);
         db.execSQL(CREATE_TABLE_HUNIAN_KELUAR);
+        db.execSQL(CREATE_TABLE_LIKE);
 
     }
 
@@ -152,6 +157,28 @@ public class DataHelper extends SQLiteOpenHelper {
             } while (cursor.moveToNext());
         }
         return listKeranjang;
+    }
+    public List<ModelDisukai> getAllDisukai() {
+        List<ModelDisukai> listDisukai = new ArrayList<ModelDisukai>();
+        // Select All Query
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT  * FROM disukai", null);
+        cursor.moveToFirst();
+        // Looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                ModelDisukai disukai = new ModelDisukai(
+                        cursor.getInt(0),
+                        cursor.getInt(1),
+                        cursor.getInt(2),
+                        cursor.getString(3),
+                        cursor.getString(4),
+                        cursor.getString(5),
+                        cursor.getString(6));
+                listDisukai.add(disukai);
+            } while (cursor.moveToNext());
+        }
+        return listDisukai;
     }
     public List<ModelHunianMasuk> getAllHunianMasuk() {
         List<ModelHunianMasuk> listHunianMasuk = new ArrayList<ModelHunianMasuk>();
