@@ -38,6 +38,7 @@ public class HomeAdmin extends AppCompatActivity {
         btn_disukai2 = findViewById(R.id.btn_disukai2);
         btn_profile2 = findViewById(R.id.btn_profile2);
 
+
         btn_katalog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,6 +83,7 @@ public class HomeAdmin extends AppCompatActivity {
         });
 
     }
+
 
     private void goToKatalog(){
         Intent a = new Intent(HomeAdmin.this, KatalogAdmin.class);

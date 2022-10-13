@@ -35,6 +35,45 @@ public class PreferenceUtils {
         return prefs.getString(Constant.KEY_NAMA, "");
     }
 
+    public static boolean saveUsername(String username, Context context){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor prefsEditor = prefs.edit();
+        prefsEditor.putString(Constant.KEY_USERNAME, username);
+        prefsEditor.apply();
+        return true;
+    }
+
+    public static String getUsername(Context context){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getString(Constant.KEY_USERNAME, "");
+    }
+
+    public static boolean saveAlamat(String alamat, Context context){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor prefsEditor = prefs.edit();
+        prefsEditor.putString(Constant.KEY_ALAMAT, alamat);
+        prefsEditor.apply();
+        return true;
+    }
+
+    public static String getAlamat(Context context){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getString(Constant.KEY_ALAMAT, "");
+    }
+
+    public static boolean saveTelepon(String telepon, Context context){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor prefsEditor = prefs.edit();
+        prefsEditor.putString(Constant.KEY_TELEPON, telepon);
+        prefsEditor.apply();
+        return true;
+    }
+
+    public static String getTelepon(Context context){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getString(Constant.KEY_TELEPON, "");
+    }
+
 
 /*
 

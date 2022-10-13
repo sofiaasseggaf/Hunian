@@ -33,7 +33,6 @@
         android:layout_marginLeft="25dp"
         android:orientation="vertical"
         android:layout_marginTop="30dp"
-        android:layout_above="@id/btn_simpan_perubahan"
         android:layout_below="@id/txt_top"
         android:layout_marginRight="25dp">
 
@@ -63,7 +62,7 @@
         android:layout_height="wrap_content"
         android:textSize="14sp"
         android:textColor="@color/black"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="40dp"
         android:fontFamily="@font/roboto_medium"
         android:text="Nama"/>
 
@@ -74,8 +73,10 @@
         android:textSize="14sp"
         android:background="@drawable/rect_search"
         android:textColor="@color/black"
+        android:paddingLeft="10dp"
+        android:editable="false"
         android:layout_marginTop="5dp"
-        android:fontFamily="@font/roboto_medium"/>
+        android:fontFamily="@font/roboto_regular"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -91,12 +92,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="14sp"
+            android:paddingLeft="10dp"
         android:background="@drawable/rect_search"
         android:textColor="@color/black"
+            android:editable="false"
         android:layout_marginTop="5dp"
-        android:fontFamily="@font/roboto_medium"/>
+        android:fontFamily="@font/roboto_regular"/>
 
-    <TextView
+   <!-- <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="14sp"
@@ -133,7 +136,7 @@
         android:background="@drawable/rect_search"
         android:textColor="@color/black"
         android:layout_marginTop="5dp"
-        android:fontFamily="@font/roboto_medium"/>
+        android:fontFamily="@font/roboto_medium"/>-->
 
         <ImageButton
             android:id="@+id/btn_sign_out"
@@ -146,15 +149,14 @@
     </LinearLayout>
 
 
-
-    <ImageButton
+    <!--<ImageButton
         android:id="@+id/btn_simpan_perubahan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@id/ll_bottom"
-        android:layout_marginBottom="15dp"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/btn_simpan_perubahan"/>
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/btn_simpan_perubahan" />-->
 
     <LinearLayout
         android:id="@+id/ll_bottom"

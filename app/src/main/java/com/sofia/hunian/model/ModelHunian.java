@@ -6,9 +6,9 @@ public class ModelHunian {
 
     int id_hunian, id_user, harga_hunian, jumlah_like;
     String nama_hunian, kota_hunian, keterangan_hunian, status, created_by, created_date, updated_by, updated_date;
-    byte[] image_hunian;
+    String image_hunian;
 
-    public ModelHunian(int id_hunian, int id_user, String nama_hunian, byte[] image_hunian, String kota_hunian, int harga_hunian, String keterangan_hunian, int jumlah_like, String status, String created_by, String created_date, String updated_by, String updated_date) {
+    public ModelHunian(int id_hunian, int id_user, String nama_hunian, String image_hunian, String kota_hunian, int harga_hunian, String keterangan_hunian, int jumlah_like, String status, String created_by, String created_date, String updated_by, String updated_date) {
         this.id_hunian = id_hunian;
         this.id_user = id_user;
         this.nama_hunian = nama_hunian;
@@ -120,11 +120,11 @@ public class ModelHunian {
         this.updated_date = updated_date;
     }
 
-    public byte[] getImage_hunian() {
+    public String getImage_hunian() {
         return image_hunian;
     }
 
-    public void setImage_hunian(byte[] image_hunian) {
+    public void setImage_hunian(String image_hunian) {
         this.image_hunian = image_hunian;
     }
 }

@@ -2,14 +2,13 @@ package com.sofia.hunian.model;
 
 public class ModelDetail {
 
-    int id_detail, id_hunian, image_detail;
+    int id_detail, id_hunian;
     String nama_detail, created_by, created_date;
 
-    public ModelDetail(int id_detail, int id_hunian,  String nama_detail, int image_detail,String created_by, String created_date) {
+    public ModelDetail(int id_detail, int id_hunian,  String nama_detail, String created_by, String created_date) {
         this.id_detail = id_detail;
         this.id_hunian = id_hunian;
         this.nama_detail = nama_detail;
-        this.image_detail = image_detail;
         this.created_by = created_by;
         this.created_date = created_date;
     }
@@ -28,14 +27,6 @@ public class ModelDetail {
 
     public void setId_hunian(int id_hunian) {
         this.id_hunian = id_hunian;
-    }
-
-    public int getImage_detail() {
-        return image_detail;
-    }
-
-    public void setImage_detail(int image_detail) {
-        this.image_detail = image_detail;
     }
 
     public String getNama_detail() {

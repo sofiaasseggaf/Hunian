@@ -91,6 +91,7 @@
                 android:textSize="14sp"
                 android:paddingLeft="10dp"
                 android:hint="Masukkan Harga Hunian"
+                android:inputType="number"
                 android:background="@drawable/rect_search"
                 android:textColor="@color/black"
                 android:layout_marginTop="5dp"
@@ -198,6 +199,15 @@
                 android:layout_marginTop="15dp"
                 android:fontFamily="@font/roboto_medium"
                 android:text="Gambar Hunian"/>
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:visibility="gone"/>
 
             <ImageButton
                 android:id="@+id/btn_camera"

@@ -72,16 +72,10 @@ public class SignIn extends AppCompatActivity {
     private void checkAdmin(){
         if (txt_username.getText().toString().equalsIgnoreCase("admin")&&
         txt_password.getText().toString().equalsIgnoreCase("12345678")){
-            saveDataUserAdmin();
+            goToHomeAdmin();
         } else {
             checkUser();
         }
-    }
-
-    private void saveDataUserAdmin(){
-        PreferenceUtils.saveIdUser("00001", getApplicationContext());
-        PreferenceUtils.saveNama("Admin", getApplicationContext());
-        goToHomeAdmin();
     }
 
     private void checkUser(){
@@ -140,6 +134,9 @@ public class SignIn extends AppCompatActivity {
     private void saveDataUser(){
         PreferenceUtils.saveIdUser(String.valueOf(user.getId_user()), getApplicationContext());
         PreferenceUtils.saveNama(user.getNama(), getApplicationContext());
+        PreferenceUtils.saveUsername(user.getUsername(), getApplicationContext());
+        PreferenceUtils.saveAlamat(user.getAlamat(), getApplicationContext());
+        PreferenceUtils.saveTelepon(String.valueOf(user.getTelepon()), getApplicationContext());
         goToHomeUser();
     }
 

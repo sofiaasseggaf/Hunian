@@ -18,10 +18,11 @@ import com.sofia.hunian.admin.HomeAdmin;
 import com.sofia.hunian.admin.KatalogAdmin;
 import com.sofia.hunian.admin.LaporanAdmin;
 import com.sofia.hunian.admin.ProfileAdmin;
+import com.sofia.hunian.utility.PreferenceUtils;
 
 public class HomeUser extends AppCompatActivity {
 
-    TextView txt_nama;
+    TextView nama;
     ViewPager viewPagerKatalog;
     ImageButton btn_keranjang, btn_home, btn_katalog, btn_disukai, btn_profile;
     LinearLayout btn_home2, btn_katalog2, btn_disukai2, btn_profile2;
@@ -31,7 +32,7 @@ public class HomeUser extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_home);
 
-        txt_nama = findViewById(R.id.txt_nama);
+        nama = findViewById(R.id.nama);
         viewPagerKatalog = findViewById(R.id.viewPagerKatalog);
         btn_keranjang = findViewById(R.id.btn_keranjang);
         btn_katalog = findViewById(R.id.btn_katalog);
@@ -40,6 +41,8 @@ public class HomeUser extends AppCompatActivity {
         btn_katalog2 = findViewById(R.id.btn_katalog2);
         btn_disukai2 = findViewById(R.id.btn_disukai2);
         btn_profile2 = findViewById(R.id.btn_profile2);
+
+        setData();
 
         btn_katalog.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,6 +87,10 @@ public class HomeUser extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void setData(){
+        nama.setText(PreferenceUtils.getNama(getApplicationContext()));
     }
 
     private void goToKatalog(){

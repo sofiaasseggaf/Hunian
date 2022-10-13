@@ -160,9 +160,11 @@ public class SignUp extends AppCompatActivity {
     private void saveDataUser(){
         PreferenceUtils.saveIdUser(String.valueOf(id_user), getApplicationContext());
         PreferenceUtils.saveNama(txt_nama.getText().toString(), getApplicationContext());
+        PreferenceUtils.saveUsername(txt_username.getText().toString(), getApplicationContext());
+        PreferenceUtils.saveAlamat(txt_alamat.getText().toString(), getApplicationContext());
+        PreferenceUtils.saveTelepon(String.valueOf(txt_telepon.getText()), getApplicationContext());
         goToHomeUser();
     }
-
     private void goToSignIn(){
         Intent a = new Intent(SignUp.this, SignIn.class);
         startActivity(a);

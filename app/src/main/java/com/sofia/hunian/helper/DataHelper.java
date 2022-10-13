@@ -19,8 +19,8 @@ import java.util.List;
 
 public class DataHelper extends SQLiteOpenHelper {
 
-    private  static final String DATABASE_NAME = "hunian.db";
-    private static final int DATABASE_VERSION = 2;
+    private  static final String DATABASE_NAME = "huniaan.db";
+    private static final int DATABASE_VERSION = 1;
 
     public DataHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -33,14 +33,14 @@ public class DataHelper extends SQLiteOpenHelper {
                 "alamat text not null, telepon integer not null, jumlah_supply integer not null, jumlah_pembelian integer not null, " +
                 "created_by text not null, created_date text not null, updated_by text not null, updated_date text not null);";
 
-        String CREATE_TABLE_HUNIAN = "create table hunian(id_hunian integer primary key, id_user integer not null, nama_hunian text not null, image_hunian BLOB not null, " +
+        String CREATE_TABLE_HUNIAN = "create table hunian(id_hunian integer primary key, id_user integer not null, nama_hunian text not null, image_hunian text not null, " +
                 "kota_hunian text not null, harga_hunian integer not null, keterangan_hunian text not null, jumlah_like integer not null, status text not null, " +
                 "created_by text not null, created_date text not null, updated_by text not null, updated_date text not null);";
 
         String CREATE_TABLE_KERANJANG = "create table keranjang(id_keranjang integer primary key, id_hunian integer not null, id_user integer not null, " +
                 "created_by text not null, created_date text not null, updated_by text not null, updated_date text not null);";
 
-        String CREATE_TABLE_DETAIL = "create table detail(id_detail integer primary key, id_hunian integer not null, nama_detail text not null, image_detail integer not null, " +
+        String CREATE_TABLE_DETAIL = "create table detail(id_detail integer primary key, id_hunian integer not null, nama_detail text not null, " +
                 "created_by text not null, created_date text not null);";
 
         String CREATE_TABLE_HUNIAN_MASUK = "create table hunianmasuk(id_hunian_masuk integer primary key, id_hunian integer not null, id_user integer not null, created_date text not null);";
@@ -96,7 +96,7 @@ public class DataHelper extends SQLiteOpenHelper {
                         cursor.getInt(0),
                         cursor.getInt(1),
                         cursor.getString(2),
-                        cursor.getBlob(3),
+                        cursor.getString(3),
                         cursor.getString(4),
                         cursor.getInt(5),
                         cursor.getString(6),
@@ -124,9 +124,8 @@ public class DataHelper extends SQLiteOpenHelper {
                         cursor.getInt(0),
                         cursor.getInt(1),
                         cursor.getString(2),
-                        cursor.getInt(3),
-                        cursor.getString(4),
-                        cursor.getString(5));
+                        cursor.getString(3),
+                        cursor.getString(4));
                 listDetail.add(detail);
             } while (cursor.moveToNext());
         }
