@@ -2,9 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sofia.hunian">
 
-    <uses-feature android:name="android.hardware.camera2" android:required="true"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-feature
+        android:name="android.hardware.camera2"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -13,6 +16,9 @@
         android:roundIcon="@drawable/logo_signup"
         android:supportsRtl="true"
         android:theme="@style/Theme.Hunian">
+        <activity
+            android:name=".user.CheckOutUser"
+            android:exported="false" />
         <activity
             android:name=".user.KeranjangUser"
             android:exported="false" />

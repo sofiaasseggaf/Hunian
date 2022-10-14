@@ -244,6 +244,31 @@ public class DataHelper extends SQLiteOpenHelper {
                 cursor.getString(11));
         return userLogged;
     }
+    public ModelHunian getHunian(int idHunian) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM hunian WHERE id_hunian = '" + idHunian + "'", null);
+        String[] hunian = new String[cursor.getCount()];
+        cursor.moveToFirst();
+        for (int cc=0; cc < cursor.getCount(); cc++) {
+            cursor.moveToPosition(cc);
+            hunian[cc] = cursor.getString(0).toString();
+        }
+        ModelHunian hunianLogged = new ModelHunian(
+                cursor.getInt(0),
+                cursor.getInt(1),
+                cursor.getString(2),
+                cursor.getString(3),
+                cursor.getString(4),
+                cursor.getInt(5),
+                cursor.getString(6),
+                cursor.getInt(7),
+                cursor.getString(8),
+                cursor.getString(9),
+                cursor.getString(10),
+                cursor.getString(11),
+                cursor.getString(12));
+        return hunianLogged;
+    }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

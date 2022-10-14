@@ -115,7 +115,18 @@ public class ProfileAdmin extends AppCompatActivity {
         finish();
     }
     private void goToDisukai(){
-        // kasih alert suruh buat akun user
+        AlertDialog.Builder builder = new AlertDialog.Builder(ProfileAdmin.this);
+        builder.setMessage("BUAT AKUN USER UNTUK FITUR INI")
+                .setCancelable(false)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int i) {
+                        dialog.cancel();
+                    }
+                });
+
+        AlertDialog alertDialog =builder.create();
+        alertDialog.show();
     }
     private void goToKatalog(){
         Intent a = new Intent(ProfileAdmin.this, KatalogAdmin.class);

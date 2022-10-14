@@ -2,6 +2,8 @@ package com.sofia.hunian.user;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.DialogInterface;
@@ -14,18 +16,29 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.sofia.hunian.R;
+import com.sofia.hunian.adapter.AdapterDataHunian;
+import com.sofia.hunian.adapter.AdapterDataKatalogHome;
 import com.sofia.hunian.admin.HomeAdmin;
 import com.sofia.hunian.admin.KatalogAdmin;
 import com.sofia.hunian.admin.LaporanAdmin;
 import com.sofia.hunian.admin.ProfileAdmin;
+import com.sofia.hunian.helper.DataHelper;
+import com.sofia.hunian.model.ModelHunian;
 import com.sofia.hunian.utility.PreferenceUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class HomeUser extends AppCompatActivity {
 
     TextView nama;
-    ViewPager viewPagerKatalog;
+    RecyclerView rvUserHome;
     ImageButton btn_keranjang, btn_home, btn_katalog, btn_disukai, btn_profile;
     LinearLayout btn_home2, btn_katalog2, btn_disukai2, btn_profile2;
+    DataHelper dbCenter;
+    List<ModelHunian> listHunian;
+    List<ModelHunian> listHunianAda = new ArrayList<>();
+    AdapterDataKatalogHome itemList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +46,7 @@ public class HomeUser extends AppCompatActivity {
         setContentView(R.layout.user_home);
 
         nama = findViewById(R.id.nama);
-        viewPagerKatalog = findViewById(R.id.viewPagerKatalog);
+        rvUserHome = findViewById(R.id.rvUserHome);
         btn_keranjang = findViewById(R.id.btn_keranjang);
         btn_katalog = findViewById(R.id.btn_katalog);
         btn_disukai = findViewById(R.id.btn_disukai);
@@ -42,7 +55,8 @@ public class HomeUser extends AppCompatActivity {
         btn_disukai2 = findViewById(R.id.btn_disukai2);
         btn_profile2 = findViewById(R.id.btn_profile2);
 
-        setData();
+        dbCenter = new DataHelper(this);
+        getandsetData();
 
         btn_katalog.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,7 +103,24 @@ public class HomeUser extends AppCompatActivity {
 
     }
 
-    private void setData(){
+    private void getandsetData(){
+        listHunian = dbCenter.getAllHunian();
+
+        if(listHunian.size()>0){
+            listHunianAda.clear();
+            for (int i=0; i<listHunian.size(); i++){
+                if (listHunian.get(i).getStatus().equalsIgnoreCase("ada")){
+                    listHunianAda.add(listHunian.get(i));
+                }
+            }
+        }
+
+        if (listHunianAda.size()>0){
+            itemList = new AdapterDataKatalogHome(listHunian);
+            LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
+            rvUserHome.setLayoutManager(layoutManager);
+            rvUserHome.setAdapter(itemList);
+        }
         nama.setText(PreferenceUtils.getNama(getApplicationContext()));
     }
 

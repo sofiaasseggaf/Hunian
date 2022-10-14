@@ -320,9 +320,25 @@ public class InputHunianUser extends AppCompatActivity {
                 PreferenceUtils.getNama(getApplicationContext()) + "','" +
                 now + "')");
 
+        saveDataHunianMasuk();
+    }
+
+    private void saveDataHunianMasuk(){
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
+        String now = formatter.format(new Date());
+        Random rand = new Random();
+        int upperbound = 10000;
+        int idHunianMasuk = rand.nextInt(upperbound);
+
+        SQLiteDatabase db = dbCenter.getWritableDatabase();
+        db.execSQL("insert into hunianmasuk(id_hunian_masuk, id_hunian, id_user, created_date) values('" +
+                idHunianMasuk + "','" +
+                id_hunian + "','" +
+                Integer.valueOf(PreferenceUtils.getIdUser(getApplicationContext())) + "','" +
+                now + "')");
+
         Toast.makeText(getApplicationContext(), "Berhasil Tambah Hunian", Toast.LENGTH_SHORT).show();
         goToKatalog();
-
     }
 
     private void goToKatalog(){

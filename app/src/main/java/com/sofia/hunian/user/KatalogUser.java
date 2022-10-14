@@ -21,6 +21,7 @@ import com.sofia.hunian.helper.DataHelper;
 import com.sofia.hunian.model.ModelDetail;
 import com.sofia.hunian.model.ModelDisukai;
 import com.sofia.hunian.model.ModelHunian;
+import com.sofia.hunian.model.ModelKeranjang;
 import com.sofia.hunian.starter.SplashScreen;
 import com.sofia.hunian.utility.PreferenceUtils;
 import com.sofia.hunian.utility.RecyclerItemClickListener;
@@ -34,20 +35,22 @@ import java.util.Random;
 
 public class KatalogUser extends AppCompatActivity {
 
-    ImageButton btn_home, btn_disukai, btn_profile, btn_tambah_katalog, btn_search;
+    ImageButton btn_home, btn_disukai, btn_profile, btn_tambah_katalog;
     LinearLayout btn_home2, btn_disukai2, btn_profile2;
-    EditText txt_search;
     RecyclerView rvKatalog;
     DataHelper dbCenter;
     List<ModelHunian> listHunian;
+    List<ModelHunian> listHunianAda = new ArrayList<>();
     List<ModelDetail> listDetail;
     List<ModelDisukai> listDisukai;
+    List<ModelKeranjang> listKeranjang;
     AdapterDataHunian itemList;
     int like = 0;
+    int keranjang = 0;
     int id_disukai=0;
     String now;
     Random rand;
-    int upperbound, idlike;
+    int upperbound, idlike, idKeranjang;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,20 +120,31 @@ public class KatalogUser extends AppCompatActivity {
         listHunian = dbCenter.getAllHunian();
         listDetail = dbCenter.getAllDetail();
         listDisukai = dbCenter.getAllDisukai();
+        listKeranjang = dbCenter.getAllKeranjang();
 
-        itemList = new AdapterDataHunian(listHunian, listDetail, new AdapterDataHunian.AdapterDataHunianListener() {
-            @Override
-            public void likeOnClick(View v, int position, int id) {
-                checkLike(listHunian.get(position).getId_hunian(), listHunian.get(position).getJumlah_like());
+        if(listHunian.size()>0){
+            listHunianAda.clear();
+            for (int i=0; i<listHunian.size(); i++){
+                if (listHunian.get(i).getStatus().equalsIgnoreCase("ada")){
+                    listHunianAda.add(listHunian.get(i));
+                }
             }
+        }
 
-            @Override
-            public void keranjangOnClick(View v, int position, int id) {
-                Toast.makeText(KatalogUser.this, "Keranjang "+position, Toast.LENGTH_SHORT).show();
-            }
-        });
-        rvKatalog.setLayoutManager(new LinearLayoutManager(KatalogUser.this));
-        rvKatalog.setAdapter(itemList);
+        if (listHunianAda.size()>0){
+            itemList = new AdapterDataHunian(listHunianAda, listDetail, new AdapterDataHunian.AdapterDataHunianListener() {
+                @Override
+                public void likeOnClick(View v, int position, int id) {
+                    checkLike(listHunianAda.get(position).getId_hunian(), listHunianAda.get(position).getJumlah_like());
+                }
+
+                @Override
+                public void keranjangOnClick(View v, int position, int id) {
+                    checkKeranjang(listHunianAda.get(position).getId_hunian());
+                }
+            });
+            rvKatalog.setLayoutManager(new LinearLayoutManager(KatalogUser.this));
+            rvKatalog.setAdapter(itemList);
         /*rvKatalog.addOnItemTouchListener(new RecyclerItemClickListener(getApplicationContext(), rvKatalog,
                 new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
@@ -141,7 +155,7 @@ public class KatalogUser extends AppCompatActivity {
                                 .setPositiveButton("YA", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int i) {
-                                        hapusHunian(listHunian.get(position).getId_hunian());
+                                        hapusHunian(listHunianAda.get(position).getId_hunian());
                                     }
                                 })
 
@@ -160,21 +174,27 @@ public class KatalogUser extends AppCompatActivity {
 
                     }
                 }));*/
+        }
+
+
 
     }
 
     private void checkLike(int id, int disukai){
         int id_user = Integer.valueOf(PreferenceUtils.getIdUser(getApplicationContext()));
-        for(int i=0; i<listDisukai.size(); i++){
-            if (listDisukai.get(i).getId_user()==id_user){
-                int id_hunian = listDisukai.get(i).getId_hunian();
-                if (id_hunian==id){
-                    id_disukai = listDisukai.get(i).getId_like();
-                    like = 1;
-                    break;
+        if (listDisukai.size()>0){
+            for(int i=0; i<listDisukai.size(); i++){
+                if (listDisukai.get(i).getId_user()==id_user){
+                    int id_hunian = listDisukai.get(i).getId_hunian();
+                    if (id_hunian==id){
+                        id_disukai = listDisukai.get(i).getId_like();
+                        like = 1;
+                        break;
+                    }
                 }
             }
         }
+
         if (like==0){
             sukaiHunian(id,disukai);
             like=0;
@@ -198,6 +218,46 @@ public class KatalogUser extends AppCompatActivity {
                     });
             AlertDialog alertDialog =builder.create();
             alertDialog.show();
+        }
+    }
+
+    private void checkKeranjang(int id){
+        int id_user = Integer.valueOf(PreferenceUtils.getIdUser(getApplicationContext()));
+        if (listKeranjang.size()>0){
+            for(int i=0; i<listKeranjang.size(); i++){
+                if (listKeranjang.get(i).getId_user()==id_user){
+                    int id_hunian = listKeranjang.get(i).getId_hunian();
+                    if (id_hunian==id){
+                        keranjang = 1;
+                        break;
+                    }
+                }
+            }
+        }
+
+        if (keranjang==0){
+            masukkanKeranjang(id);
+            keranjang=0;
+        } else if(keranjang==1){
+            Toast.makeText(this, "Hunian Sudah Di Dalam Keranjang", Toast.LENGTH_SHORT).show();
+            /*AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage("Batal Menyukai Hunian ?")
+                    .setCancelable(false)
+                    .setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int i) {
+                            hapusLike(id, id_disukai, disukai);
+                        }
+                    })
+
+                    .setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int i) {
+                            dialog.cancel();
+                        }
+                    });
+            AlertDialog alertDialog =builder.create();
+            alertDialog.show();*/
         }
     }
 
@@ -240,6 +300,25 @@ public class KatalogUser extends AppCompatActivity {
 
         Toast.makeText(this, "Berhasil Hapus Like", Toast.LENGTH_SHORT).show();
         goToKatalog();
+    }
+
+    private void masukkanKeranjang(int id){
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
+        now = formatter.format(new Date());
+        rand = new Random();
+        upperbound = 10000;
+        idKeranjang = rand.nextInt(upperbound);
+
+        SQLiteDatabase db = dbCenter.getWritableDatabase();
+        db.execSQL("insert into keranjang(id_keranjang, id_hunian, id_user, created_by, created_date, updated_by, updated_date) values('" +
+                idKeranjang + "','" +
+                id + "','" +
+                Integer.valueOf(PreferenceUtils.getIdUser(getApplicationContext())) + "','" +
+                PreferenceUtils.getNama(getApplicationContext()) + "','" +
+                now + "','" +
+                PreferenceUtils.getNama(getApplicationContext()) + "','" +
+                now + "')");
+        Toast.makeText(this, "Berhasil Masukkan Keranjang", Toast.LENGTH_SHORT).show();
     }
 
     private void hapusHunian(int id){

@@ -16,6 +16,7 @@
         <entry key="..\:/Users/Thinkpad/AndroidStudioProjects/Hunian/app/src/main/res/layout/sign_up.xml" value="0.29322916666666665" />
         <entry key="..\:/Users/Thinkpad/AndroidStudioProjects/Hunian/app/src/main/res/layout/splash_screen.xml" value="0.29322916666666665" />
         <entry key="..\:/Users/Thinkpad/AndroidStudioProjects/Hunian/app/src/main/res/layout/user_activity_input_hunian.xml" value="0.2791666666666667" />
+        <entry key="..\:/Users/Thinkpad/AndroidStudioProjects/Hunian/app/src/main/res/layout/user_check_out.xml" value="0.33" />
         <entry key="..\:/Users/Thinkpad/AndroidStudioProjects/Hunian/app/src/main/res/layout/user_disukai.xml" value="0.2791666666666667" />
         <entry key="..\:/Users/Thinkpad/AndroidStudioProjects/Hunian/app/src/main/res/layout/user_home.xml" value="0.29322916666666665" />
         <entry key="..\:/Users/Thinkpad/AndroidStudioProjects/Hunian/app/src/main/res/layout/user_katalog.xml" value="0.29322916666666665" />
@@ -24,6 +25,10 @@
         <entry key="..\:/Users/Thinkpad/AndroidStudioProjects/Hunian/app/src/main/res/layout/z_detail.xml" value="0.29322916666666665" />
         <entry key="..\:/Users/Thinkpad/AndroidStudioProjects/Hunian/app/src/main/res/layout/z_disukai.xml" value="0.29322916666666665" />
         <entry key="..\:/Users/Thinkpad/AndroidStudioProjects/Hunian/app/src/main/res/layout/z_katalog.xml" value="0.29322916666666665" />
+        <entry key="..\:/Users/Thinkpad/AndroidStudioProjects/Hunian/app/src/main/res/layout/z_katalog_home.xml" value="0.29322916666666665" />
+        <entry key="..\:/Users/Thinkpad/AndroidStudioProjects/Hunian/app/src/main/res/layout/z_laporan_hunian.xml" value="0.33" />
+        <entry key="..\:/Users/Thinkpad/AndroidStudioProjects/Hunian/app/src/main/res/layout/z_laporan_hunian_mauk.xml" value="0.25" />
+        <entry key="..\:/Users/Thinkpad/AndroidStudioProjects/Hunian/app/src/main/res/layout/z_laporan_user.xml" value="0.25" />
       </map>
     </option>
   </component>
